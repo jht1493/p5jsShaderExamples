@@ -7,16 +7,18 @@ let camShader;
 let cam;
 let pupImg;
 
-function preload(){
+function preload() {
   // load the shader
   camShader = loadShader('effect.vert', 'effect.frag');
 
-  pupImg = loadImage('dog.jpg');
+  // pupImg = loadImage('dog.jpg');
+  pupImg = loadImage('ticker.png');
 }
 
 function setup() {
   // shaders require WEBGL mode to work
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  // createCanvas(windowWidth, windowHeight, WEBGL);
+  createCanvas(1920, 1080, WEBGL);
   noStroke();
 
   // initialize the webcam at the window size
@@ -25,10 +27,9 @@ function setup() {
 
   // hide the html element that createCapture adds to the screen
   cam.hide();
-
 }
 
-function draw() {  
+function draw() {
   // shader() sets the active shader with our shader
   shader(camShader);
 
@@ -38,9 +39,9 @@ function draw() {
 
   camShader.setUniform('amt', map(mouseX, 0, width, 0, 0.2));
   // rect gives us some geometry on the screen
-  rect(0,0,width, height);
+  rect(0, 0, width, height);
 }
 
-function windowResized(){
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
