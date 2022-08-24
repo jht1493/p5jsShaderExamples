@@ -1,4 +1,6 @@
 // in this sketch the camera image will be distorted by using a sine wave function in the shader
+// https://github.com/aferriss/p5jsShaderExamples.git
+// p5jsShaderExamples/4_image-effects/4-3_sinewave-distort/sketch.js
 
 // the shader variable
 let camShader;
@@ -6,7 +8,7 @@ let camShader;
 // the camera variable
 let cam;
 
-function preload(){
+function preload() {
   // load the shader
   camShader = loadShader('effect.vert', 'effect.frag');
 }
@@ -22,10 +24,9 @@ function setup() {
 
   // hide the html element that createCapture adds to the screen
   cam.hide();
-
 }
 
-function draw() {  
+function draw() {
   // shader() sets the active shader with our shader
   shader(camShader);
 
@@ -46,9 +47,9 @@ function draw() {
   camShader.setUniform('amplitude', amp);
 
   // rect gives us some geometry on the screen
-  rect(0,0,width, height);
+  rect(0, 0, width, height);
 }
 
-function windowResized(){
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
